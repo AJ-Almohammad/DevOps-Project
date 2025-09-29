@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Phoenix - DevOps Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+            padding: 20px;
+        }
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        .skill-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+        .skill-card h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+        .skill-card p {
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        .links {
+            margin-top: 15px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            transition: background 0.3s ease;
+        }
+        .btn:hover {
+            background: #764ba2;
+        }
+        .status {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        .status.live {
+            background: #4CAF50;
+            color: white;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.7; }
+            100% { opacity: 1; }
+        }
+        .architecture {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin-top: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .architecture h2 {
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .arch-diagram {
+            text-align: center;
+            color: #666;
+            font-style: italic;
+        }
+        video {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .access-options {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #667eea;
+        }
+        .access-options h4 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 Project Phoenix</h1>
+            <p>Complete DevOps Implementation - DevOps Engineer Portfolio</p>
+        </div>
+
+        <div class="skills-grid">
+            <!-- Docker & Kubernetes -->
+            <div class="skill-card">
+                <h3>🐳 Containerization & Orchestration</h3>
+                <p><strong>"I containerized applications using Docker and orchestrated with Kubernetes"</strong></p>
+                <p>Built Docker images, managed containers, deployed to Kubernetes cluster with scaling and self-healing capabilities.</p>
+                <div class="links">
+                    <a href="http://localhost:30007" class="btn" target="_blank">View Application</a>
+                    <a href="http://localhost:30007/health" class="btn" target="_blank">Health Check</a>
+                    <span class="status live">LIVE</span>
+                </div>
+            </div>
+
+            <!-- Helm Charts -->
+            <div class="skill-card">
+                <h3>📦 Helm Packaging</h3>
+                <p><strong>"I created Helm charts for application packaging and deployment"</strong></p>
+                <p>Developed custom Helm charts with templates, values management, and production-ready configurations.</p>
+                <div class="links">
+                    <a href="https://github.com/yourusername/project-phoenix/tree/main/charts" class="btn" target="_blank">View Helm Charts</a>
+                </div>
+            </div>
+
+            <!-- CI/CD Pipeline -->
+            <div class="skill-card">
+                <h3>⚙️ CI/CD Pipeline</h3>
+                <p><strong>"I built CI/CD pipelines with security scanning and automated deployment"</strong></p>
+                <p>Implemented GitLab CI pipeline with testing, security scanning, and automated Kubernetes deployment.</p>
+                <div class="links">
+                    <a href="https://github.com/yourusername/project-phoenix/blob/main/.gitlab-ci.yml" class="btn" target="_blank">View Pipeline</a>
+                </div>
+            </div>
+
+            <!-- Monitoring & Observability -->
+            <div class="skill-card">
+                <h3>📊 Monitoring & Observability</h3>
+                <p><strong>"I implemented monitoring with Prometheus and Grafana"</strong></p>
+                <p>Set up comprehensive monitoring with metrics collection, alerting, and visualization using Prometheus data source.</p>
+                
+                <!-- Video Demo Section -->
+                <div style="text-align: center; margin: 15px 0;">
+                    <video controls width="100%">
+                        <source src="grafana-dashboard.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <p style="color: #666; font-size: 0.9em; margin-top: 5px;">
+                        Grafana Dashboard Demo (1:00) - 1.2MB
+                    </p>
+                </div>
+
+                <!-- Access Options -->
+                <div class="access-options">
+                    <h4>🚀 Access Live Dashboard:</h4>
+                    <div style="display: flex; flex-direction: column; gap: 10px;">
+                        <a href="https://ameralmohammad.grafana.net/public-dashboards/1af1bae929824d0690d3ff4abf016a7a" 
+                           class="btn" target="_blank" style="text-align: center; background: #ff6b35;">
+                            📊 View Live Grafana Dashboard
+                        </a>
+                        <a href="grafana-dashboard.mp4" class="btn" style="text-align: center;">
+                            📹 Watch Video Demonstration
+                        </a>
+                        <a href="http://localhost:30007/metrics" class="btn" style="text-align: center;">
+                            📈 View Raw Metrics Endpoint
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="links">
+                    <span class="status live">LIVE DASHBOARD</span>
+                </div>
+            </div>
+
+            <!-- Infrastructure as Code -->
+            <div class="skill-card">
+                <h3>🏗️ Infrastructure as Code</h3>
+                <p><strong>"I used Terraform and Ansible for Infrastructure as Code"</strong></p>
+                <p>Created Terraform configurations for cloud infrastructure and Ansible playbooks for automation.</p>
+                <div class="links">
+                    <a href="https://github.com/yourusername/project-phoenix/tree/main/terraform" class="btn" target="_blank">Terraform Code</a>
+                    <a href="https://github.com/yourusername/project-phoenix/blob/main/ansible-playbook.yml" class="btn" target="_blank">Ansible Playbook</a>
+                </div>
+            </div>
+
+            <!-- Project Overview -->
+            <div class="skill-card">
+                <h3>📁 Project Structure</h3>
+                <p>Comprehensive DevOps implementation with all source code and configurations.</p>
+                <div class="links">
+                    <a href="https://github.com/yourusername/project-phoenix" class="btn" target="_blank">View Project Repository</a>
+                    <a href="http://localhost:30007" class="btn" target="_blank">Live Demo</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="architecture">
+            <h2>🏗️ System Architecture</h2>
+            <div class="arch-diagram">
+                <p><strong>Docker</strong> → <strong>Kubernetes</strong> → <strong>Helm</strong> → <strong>CI/CD</strong> → <strong>Monitoring</strong> → <strong>Infrastructure as Code</strong></p>
+                <p>End-to-end DevOps pipeline demonstrating production-ready skills</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

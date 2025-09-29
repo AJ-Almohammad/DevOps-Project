@@ -1,0 +1,142 @@
+{
+  "dashboard": {
+    "uid": null,
+    "id": null,
+    "title": "🚀 Project Phoenix - Live Production Monitoring",
+    "description": "Real-time DevOps Portfolio Dashboard - Containerized PHP Application Monitoring with Prometheus & Grafana",
+    "tags": [
+      "devops",
+      "kubernetes",
+      "monitoring",
+      "portfolio"
+    ],
+    "timezone": "browser",
+    "schemaVersion": 36,
+    "version": 1,
+    "refresh": "10s",
+    "time": {
+      "from": "now-1h",
+      "to": "now"
+    },
+    "panels": [
+      {
+        "id": 1,
+        "title": "Total Requests",
+        "type": "stat",
+        "gridPos": { "h": 8, "w": 6, "x": 0, "y": 0 },
+        "datasource": { "type": "prometheus", "name": "Cloud Prometheus: project-phoenix-read-policy-project-phoenix-read" },
+        "targets": [
+          { "expr": "php_requests_total", "legendFormat": "Requests", "refId": "A" }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "color": { "mode": "palette-classic" },
+            "unit": "short",
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                { "color": "green", "value": 0 },
+                { "color": "yellow", "value": 1000 },
+                { "color": "red", "value": 10000 }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "id": 2,
+        "title": "Memory Usage (MB)",
+        "type": "gauge",
+        "gridPos": { "h": 8, "w": 6, "x": 6, "y": 0 },
+        "datasource": { "type": "prometheus", "name": "Cloud Prometheus: project-phoenix-read-policy-project-phoenix-read" },
+        "targets": [
+          { "expr": "php_memory_usage_bytes / 1024 / 1024", "legendFormat": "Memory", "refId": "A" }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "min": 0,
+            "max": 100,
+            "unit": "megabytes",
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                { "color": "green", "value": 0 },
+                { "color": "yellow", "value": 50 },
+                { "color": "red", "value": 80 }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "id": 3,
+        "title": "Active Users",
+        "type": "stat",
+        "gridPos": { "h": 8, "w": 6, "x": 12, "y": 0 },
+        "datasource": { "type": "prometheus", "name": "Cloud Prometheus: project-phoenix-read-policy-project-phoenix-read" },
+        "targets": [
+          { "expr": "php_active_users", "legendFormat": "Users", "refId": "A" }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "color": { "mode": "palette-classic" },
+            "unit": "short",
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                { "color": "purple", "value": 0 }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "id": 4,
+        "title": "Response Time (ms)",
+        "type": "timeseries",
+        "gridPos": { "h": 8, "w": 12, "x": 0, "y": 8 },
+        "datasource": { "type": "prometheus", "name": "Cloud Prometheus: project-phoenix-read-policy-project-phoenix-read" },
+        "targets": [
+          { "expr": "php_response_time_ms", "legendFormat": "Response Time", "refId": "A" }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "color": { "mode": "continuous-GrYlRd" },
+            "unit": "ms",
+            "min": 0
+          }
+        }
+      },
+      {
+        "id": 5,
+        "title": "CPU Usage %",
+        "type": "timeseries",
+        "gridPos": { "h": 8, "w": 12, "x": 12, "y": 8 },
+        "datasource": { "type": "prometheus", "name": "Cloud Prometheus: project-phoenix-read-policy-project-phoenix-read" },
+        "targets": [
+          { "expr": "php_cpu_usage_percent", "legendFormat": "CPU Usage", "refId": "A" }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "color": { "mode": "continuous-RdYlGr" },
+            "unit": "percent",
+            "min": 0,
+            "max": 100
+          }
+        }
+      },
+      {
+        "id": 6,
+        "title": "Application Info",
+        "type": "text",
+        "gridPos": { "h": 8, "w": 12, "x": 0, "y": 16 },
+        "options": {
+          "mode": "markdown",
+          "content": "# 🚀 Project Phoenix DevOps Dashboard\n\n## 📊 Live Production Monitoring\n\n**Technologies Demonstrated:**\n- 🐳 Docker Containerization\n- ⚙️ Kubernetes Orchestration  \n- 📦 Helm Packaging\n- ⚡ CI/CD Pipelines\n- 📊 Prometheus Metrics\n- 🎯 Grafana Visualization\n\n**Metrics Tracked:**\n- Request throughput\n- Memory consumption\n- Response latency\n- Active users\n- CPU utilization\n\n*This dashboard showcases real DevOps implementation skills for production environments.*"
+        }
+      }
+    ]
+  },
+  "folderId": 0,
+  "overwrite": true
+}

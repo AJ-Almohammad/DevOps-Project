@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: project-phoenix-service
+spec:
+  selector:
+    app: project-phoenix  # This matches the labels in our deployment
+  ports:
+  - port: 80            # Port the service listens on
+    targetPort: 80      # Port the container listens on
+    nodePort: 30007     # Port we'll use to access from browser (30000-32767 range)
+  type: NodePort        # Makes the service accessible from outside the cluster

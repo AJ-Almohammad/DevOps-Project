@@ -1,0 +1,53 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: grafana-agent
+  labels:
+    app: grafana-agent
+data:
+  agent.yaml: |
+    server:
+      log_level: info
+
+    metrics:
+      global:
+        scrape_interval: 15s
+      configs:
+        - name: default
+          scrape_configs:
+            - job_name: "project-phoenix"
+              static_configs:
+                - targets: ["project-phoenix-service.default.svc.cluster.local:80"]
+          remote_write:
+            - url: https://prometheus-prod-24-prod-eu-west-2.grafana.net/api/prom/push
+              basic_auth:
+                username: "User_Namer"
+                password: "glc_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx=="
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: grafana-agent
+  labels:
+    app: grafana-agent
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: grafana-agent
+  template:
+    metadata:
+      labels:
+        app: grafana-agent
+    spec:
+      containers:
+        - name: grafana-agent
+          image: grafana/agent:latest
+          args: ["--config.file=/etc/agent/agent.yaml"]
+          volumeMounts:
+            - name: config
+              mountPath: /etc/agent
+      volumes:
+        - name: config
+          configMap:
+            name: grafana-agent

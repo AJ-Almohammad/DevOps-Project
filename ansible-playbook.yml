@@ -1,0 +1,59 @@
+---
+- name: Deploy Project Phoenix to Kubernetes
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: Create Kubernetes namespace
+      kubernetes.core.k8s:
+        kind: Namespace
+        name: project-phoenix-ansible
+        state: present
+
+    - name: Deploy Application
+      kubernetes.core.k8s:
+        state: present
+        definition:
+          apiVersion: apps/v1
+          kind: Deployment
+          metadata:
+            name: project-phoenix-ansible
+            namespace: project-phoenix-ansible
+          spec:
+            replicas: 2
+            selector:
+              matchLabels:
+                app: project-phoenix
+            template:
+              metadata:
+                labels:
+                  app: project-phoenix
+              spec:
+                containers:
+                - name: php-app
+                  image: project-phoenix:latest
+                  ports:
+                  - containerPort: 80
+                  livenessProbe:
+                    httpGet:
+                      path: /health
+                      port: 80
+                    initialDelaySeconds: 5
+                    periodSeconds: 10
+
+    - name: Expose Application Service
+      kubernetes.core.k8s:
+        state: present
+        definition:
+          apiVersion: v1
+          kind: Service
+          metadata:
+            name: project-phoenix-service
+            namespace: project-phoenix-ansible
+          spec:
+            type: NodePort
+            selector:
+              app: project-phoenix
+            ports:
+            - port: 80
+              targetPort: 80
+              nodePort: 30009
